@@ -83,6 +83,7 @@ const player = new playerOne();
 
 
 // enemies
+// yes
 
 
 const enemyImage = new Image();
