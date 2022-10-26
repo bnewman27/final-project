@@ -22,16 +22,19 @@
             <source src="assets/478.2.wav" type="audio/wav">
             
             </audio>
+            <canvas id='canvas2'>
+
+            </canvas>
             
             </body>   
             </main>
-            <script>
+            <!-- <script>
             // background
                 var canvas = document.getElementById("canvas2"),
                  ctx = canvas.getContext("2d");
 
                 canvas.width = 1920;
-                canvas.height = 1080;
+                canvas.height = 1920;
 
 
                 var background = new Image();
@@ -39,9 +42,9 @@
 
             // Make sure the image is loaded first otherwise nothing will draw.
                 background.onload = function(){
-                ctx.drawImage(background, 350 ,0);   
+                ctx.drawImage(background, canvas.width /2 ,350);   
                 }
-            </script>
+            </script> -->
             <script src="./newScript.js"></script>
             <!-- Scripts -->
             
