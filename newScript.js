@@ -10,6 +10,9 @@ ctx.font = "35px courier new"
 let gameSpeed = 1;
 let gameOver = false;
 
+
+           
+
 // Mouse Interactivity
 let canvasPosition = canvas.getBoundingClientRect();
 const mouse = {

@@ -5,19 +5,47 @@
 <title>Space Race</title>
     </head>
         <body>
-<!-- working on tiling and projecting backgrond upright -->
+            <canvas id='canvas2'>
+
+            </canvas>
+
             <canvas id='canvas1'>
-                
+            <h1>SPACE RACE</h1>
             </canvas>
             <main>
-             
-        </body>
+                <h1>SPACE RACE</h1>
                 
+             
+        
+            <!-- // music -->
+            <audio controls autoplay>
+            <source src="assets/478.2.wav" type="audio/wav">
+            
+            </audio>
+            
+            </body>   
             </main>
+            <script>
+            // background
+                var canvas = document.getElementById("canvas2"),
+                 ctx = canvas.getContext("2d");
+
+                canvas.width = 1920;
+                canvas.height = 1080;
+
+
+                var background = new Image();
+                background.src = "assets/sprite/spriteSub/spaceBackground1920.png";
+
+            // Make sure the image is loaded first otherwise nothing will draw.
+                background.onload = function(){
+                ctx.drawImage(background, 350 ,0);   
+                }
+            </script>
             <script src="./newScript.js"></script>
             <!-- Scripts -->
             
-            <script src="./newImage.js"></script> -->
+            <script src="./newImage.js"></script> 
             
             
             <script src="./coin.js"></script>
