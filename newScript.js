@@ -66,8 +66,7 @@ class playerOne {
         ctx.fill();
         ctx.closePath();
         ctx.fillRect(this.x, this.y, this.radius, 10);
-        ctx.drawImage(playerImage, this.x-70, this.y-76.7, this.radius * 5, this.radius * 5) 
-
+        ctx.drawImage(playerImage, this.x-70, this.y-76.7, this.radius * 5, this.radius * 5)
         ctx.save();
         
        
@@ -75,9 +74,11 @@ class playerOne {
 }
 const player = new playerOne();
 // enemies
+
+// enemy 01
 const enemyImage01 = new Image();
 enemyImage01.src = 'assets/shuttle-side.png';
-class Enemy {
+class Enemy01 {
     constructor(){
         this.x = canvas.width + 200;
         this.y = Math.random() * (canvas.height - 150) + 90;
@@ -89,14 +90,6 @@ class Enemy {
         this.spriteWidth = 45;
         this.spriteHeight = 45;
         this.sound = Math.random() <=0.5 ? 'attacka10202022_1' : 'attacka10202022_1';
-    }
-    draw(){
-        ctx.fillStyle = 'gold'
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius,  0, Math.PI * 2);
-        ctx.fill();
-        ctx.drawImage(enemyImage01, this.x-95, this.y-80, this.radius * 5, this.radius * 5) 
-    
     }
     update(){
         this.x -= this.speed;
@@ -117,12 +110,67 @@ class Enemy {
             handleGameOver();
             }
         }
+    draw(){
+        ctx.fillStyle = 'gold'
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius,  0, Math.PI * 2);
+        ctx.fill();
+        ctx.drawImage(enemyImage01, this.x-95, this.y-80, this.radius * 5, this.radius * 5)
     }
-const enemy1 = new Enemy();
+    }
+const enemy1 = new Enemy01();
 function handleEnemies(){
-    enemy1.draw();
     enemy1.update();
+    enemy1.draw();}
+// enemy 02
+const enemyImage02 = new Image();
+enemyImage02.src = 'assets/shuttle02-side.png';
+class Enemy02 {
+    constructor(){
+        this.x = canvas.width + 200;
+        this.y = Math.random() * (canvas.height - 150) + 90 * Math.random();
+        this.radius = 30;
+        this.speed = Math.random() * 2 + 2;
+        this.frame = 0;
+        this.frameX = 0;
+        this.frameY = 0;
+        this.spriteWidth = 45;
+        this.spriteHeight = 45;
+        this.sound = Math.random() <=0.5 ? 'attacka10202022_1' : 'attacka10202022_1';
+    }
+    update(){
+        this.x -= this.speed;
+        if (this.x < 0 - this.radius * 2){
+            this.x < canvas.width + 200;
+            this.y = Math.random()* (canvas.height - 150) + 90;
+            this.speed = Math.random() * 2 + 2;
+            }
+        if (gameFrame % 5 == 0){
+            this.frame++;
+            if (this.frame >= 12) this.frame = 0;
+            }           
+// player/object collision
+            const dx = this.x - player.x;
+            const dy = this.y - player.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < this.radius + player.radius){
+            handleGameOver();
+            }
+        }
+    draw(){
+        ctx.fillStyle = 'gold'
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius,  0, Math.PI * 2);
+        ctx.fill();
+        ctx.drawImage(enemyImage02, this.x-95, this.y-80, this.radius * 5, this.radius * 5)
+    }
+    }
+const enemy2 = new Enemy02();
+function handleEnemies(){
+    enemy2.update();
+    enemy2.draw(); 
 }
+// game over
 function handleGameOver(){
     ctx.fillStyle = 'red';
     ctx.fillText('GAME OVER, YOUR NEW HIGHSCORE: ' + HighScore, 70, 250);
