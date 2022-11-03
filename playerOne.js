@@ -52,3 +52,7 @@
 //     }
 // }
 // const pc = newPlayerOne(100, 110)
+
+
+
+// *******   reformat controls for weapons     *******

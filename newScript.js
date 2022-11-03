@@ -2,17 +2,12 @@
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 800;
-canvas.height = 500;
-
+canvas.height = 500; 
 let HighScore = 0
 let gameFrame = 0;
 ctx.font = "35px courier new"
 let gameSpeed = 1;
 let gameOver = false;
-
-
-           
-
 // Mouse Interactivity
 let canvasPosition = canvas.getBoundingClientRect();
 const mouse = {
@@ -33,8 +28,7 @@ canvas.addEventListener('mouseup', function() {
 const playerImage = new Image();
 playerImage.src = '/assets/sprite/spriteSub/killerstar.gif';
 // playerImage.src = '/assets/sprite/spriteSub/blackhole.gif';
-
-
+// ****    add cursor effects    ****
 class playerOne {
     constructor(){
         this.x = canvas.width/2;
@@ -80,15 +74,9 @@ class playerOne {
     }
 }
 const player = new playerOne();
-
-
 // enemies
-// yes
-
-
-const enemyImage = new Image();
-enemyImage.src = 'assets/shuttle-side.png';
-
+const enemyImage01 = new Image();
+enemyImage01.src = 'assets/shuttle-side.png';
 class Enemy {
     constructor(){
         this.x = canvas.width + 200;
@@ -107,7 +95,7 @@ class Enemy {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius,  0, Math.PI * 2);
         ctx.fill();
-        ctx.drawImage(enemyImage, this.x-95, this.y-80, this.radius * 5, this.radius * 5) 
+        ctx.drawImage(enemyImage01, this.x-95, this.y-80, this.radius * 5, this.radius * 5) 
     
     }
     update(){
@@ -120,10 +108,8 @@ class Enemy {
         if (gameFrame % 5 == 0){
             this.frame++;
             if (this.frame >= 12) this.frame = 0;
-            }
-            
-            
-// player collision
+            }           
+// player/object collision
             const dx = this.x - player.x;
             const dy = this.y - player.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
@@ -132,32 +118,21 @@ class Enemy {
             }
         }
     }
-
 const enemy1 = new Enemy();
 function handleEnemies(){
     enemy1.draw();
     enemy1.update();
-     
 }
-
-
-
-
 function handleGameOver(){
     ctx.fillStyle = 'red';
     ctx.fillText('GAME OVER, YOUR NEW HIGHSCORE: ' + HighScore, 70, 250);
     ctx.fillText('REFRESH TO CONTINUE.', 185, 350);
     gameOver = true;
-    
-   
-    
 }
-
-// // /Coin?
+// // /Coin
 const coinArray = []
 const coinImage = new Image();
 coinImage.src = "assets/sprite/spriteSub/coin.gif";
-
 class coin {
     constructor(){
         this.x = Math.random() * canvas.width;
@@ -185,18 +160,15 @@ class coin {
 
     }
 }
-
 const attackA = document.createElement('audio');
 attackA.src = './assets/attacka10202022_1.wav';
 const attackB = document.createElement('audio');
 attackB.src = './assets/attacka10202022_1.wav';
 // const attackC = document.createElement('audio');
 // attackC.src = './assets/attackc10202022.wav';
-
 function handleCoins(){
     if(gameFrame % 50 == 0){
         coinArray.push(new coin());
-        
     }
     for(let i = 0; i < coinArray.length; i++){
         coinArray[i].update();
@@ -231,7 +203,6 @@ const BG = {
     height: canvas.height,
 
 }
-
 function backgroundAnimation(){
     BG.x1 -= gameSpeed;
     if (BG.x1 < -BG.width) BG.x1 = BG.width;
@@ -240,27 +211,20 @@ function backgroundAnimation(){
     ctx.drawImage(background, BG.x1, BG.y, BG.width, BG.height);
     ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height);
 }
-
 // Animation Loop
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     backgroundAnimation()
     handleCoins();
-    
     player.update();
     player.draw();
     handleEnemies()
     ctx.fillstyle = 'yellow';
     ctx.fillText('HIGHSCORE: ' + HighScore, 260, 50);
     gameFrame++;
-    if (!gameOver) requestAnimationFrame(animate);
-    
-       
+    if (!gameOver) requestAnimationFrame(animate);     
 }
 animate();
-
-
-
 window.addEventListener('resize', function(){
     canvasPosition = canvas.getBoundingClientRect();
 });
