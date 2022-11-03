@@ -1,2 +1,2 @@
 bug#1: enemy updating
-bug#2: gae slowdown after 'HIGHSCORE: ~150'
+bug#2: game slowdown after 'HIGHSCORE: ~150'
