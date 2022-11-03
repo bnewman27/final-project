@@ -7,8 +7,6 @@ function newImage(url, left, bottom){
     document.body.append(image)
     return image
 }
-
-
 function backgroundImage(url, left, bottom){
     let image = document.createElement('img')
     image.src = url
