@@ -262,11 +262,11 @@ function backgroundAnimation(){
 // Animation Loop
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    backgroundAnimation()
+    backgroundAnimation();
     handleCoins();
     player.update();
     player.draw();
-    handleEnemies()
+    handleEnemies();
     ctx.fillstyle = 'yellow';
     ctx.fillText('HIGHSCORE: ' + HighScore, 260, 50);
     gameFrame++;
