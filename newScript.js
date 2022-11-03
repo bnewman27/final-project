@@ -124,7 +124,7 @@ function handleEnemies(){
     enemy1.draw();}
 // enemy 02
 const enemyImage02 = new Image();
-enemyImage02.src = 'assets/shuttle02-side.png';
+enemyImage02.src = 'assets/shuttle-side.png';
 class Enemy02 {
     constructor(){
         this.x = canvas.width + 200;
