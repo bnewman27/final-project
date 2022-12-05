@@ -66,7 +66,7 @@ class playerOne {
         ctx.fill();
         ctx.closePath();
         ctx.fillRect(this.x, this.y, this.radius, 10);
-        ctx.drawImage(playerImage, this.x-70, this.y-76.7, this.radius * 5, this.radius * 5)
+        ctx.drawImage(playerImage, this.x-70, this.y-76.7, this.radius * 5, this.radius * 5);
         ctx.save();
         
        
