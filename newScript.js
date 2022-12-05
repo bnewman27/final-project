@@ -54,7 +54,7 @@ class playerOne {
     }
     draw(){
         if(mouse.click) {
-            ctx.lineWidth = 0.2;
+            ctx.lineWidth = 0.2 
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
             ctx.lineTo(mouse.x, mouse.y);
