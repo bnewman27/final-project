@@ -13,13 +13,12 @@ let canvasPosition = canvas.getBoundingClientRect();
 const mouse = {
     x: canvas.width/20,
     y: canvas.height/20,
-    click: false
+    click: false,
 }
 canvas.addEventListener('mousedown', function(event) {
     mouse.click = true;  
     mouse.x = event.x - canvasPosition.left;
     mouse.y = event.y - canvasPosition.top;
-    
 });
 canvas.addEventListener('mouseup', function() {
     mouse.click = false;
@@ -54,7 +53,7 @@ class playerOne {
     }
     draw(){
         if(mouse.click) {
-            ctx.lineWidth = 0.2 
+            ctx.lineWidth = 0.2; 
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -68,8 +67,6 @@ class playerOne {
         ctx.fillRect(this.x, this.y, this.radius, 10);
         ctx.drawImage(playerImage, this.x-70, this.y-76.7, this.radius * 5, this.radius * 5);
         ctx.save();
-        
-       
     }
 }
 const player = new playerOne();
@@ -121,7 +118,8 @@ class Enemy01 {
 const enemy1 = new Enemy01();
 function handleEnemies(){
     enemy1.update();
-    enemy1.draw();}
+    enemy1.draw();
+}
 // enemy 02
 const enemyImage02 = new Image();
 enemyImage02.src = 'assets/shuttle-side.png';
@@ -158,7 +156,7 @@ class Enemy02 {
             }
         }
     draw(){
-        ctx.fillStyle = 'gold'
+        ctx.fillStyle = 'gold';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius,  0, Math.PI * 2);
         ctx.fill();
