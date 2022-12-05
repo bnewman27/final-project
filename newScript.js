@@ -3,7 +3,7 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 canvas.width = 800;
 canvas.height = 500; 
-let HighScore = 0
+let HighScore = 0;
 let gameFrame = 0;
 ctx.font = "35px courier new"
 let gameSpeed = 1;
@@ -115,7 +115,7 @@ class Enemy01 {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius,  0, Math.PI * 2);
         ctx.fill();
-        ctx.drawImage(enemyImage01, this.x-95, this.y-80, this.radius * 5, this.radius * 5)
+        ctx.drawImage(enemyImage01, this.x-95, this.y-80, this.radius * 5, this.radius * 5);
     }
     }
 const enemy1 = new Enemy01();
@@ -162,7 +162,7 @@ class Enemy02 {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius,  0, Math.PI * 2);
         ctx.fill();
-        ctx.drawImage(enemyImage02, this.x-95, this.y-80, this.radius * 5, this.radius * 5)
+        ctx.drawImage(enemyImage02, this.x-95, this.y-80, this.radius * 5, this.radius * 5);
     }
     }
 const enemy2 = new Enemy02();
